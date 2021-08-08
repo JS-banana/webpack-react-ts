@@ -1,0 +1,16 @@
+# build
+build
+
+# node_modules
+node_modules
+
+# coverage
+coverage
+
+# log
+npm-debug.log
+yarn-error.log
+
+# 
+.DS_Store
+.idea
