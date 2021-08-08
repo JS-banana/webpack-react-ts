@@ -1,26 +1,17 @@
 const fs = require('fs');
 const path = require('path');
 
-const prettierOptions = JSON.parse(
-  fs.readFileSync(path.resolve(__dirname, '.prettierrc'), 'utf8'),
-);
+const prettierOptions = JSON.parse(fs.readFileSync(path.resolve(__dirname, '.prettierrc'), 'utf8'));
 
 module.exports = {
   parser: '@typescript-eslint/parser',
   extends: [
     'airbnb-typescript',
     'prettier',
-    'prettier/react',
-    'prettier/@typescript-eslint'
+    // 'prettier/react',
+    // 'prettier/@typescript-eslint',
   ],
-  plugins: [
-    'prettier',
-    'redux-saga',
-    'react',
-    'react-hooks',
-    'jsx-a11y',
-    '@typescript-eslint',
-  ],
+  plugins: ['prettier', 'react', 'react-hooks', 'jsx-a11y', '@typescript-eslint'],
   env: {
     jest: true,
     browser: true,
@@ -33,7 +24,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    project: './tsconfig.eslint.json',
+    // project: './tsconfig.eslint.json',
   },
   rules: {
     'jsx-no-lambda': 0,
