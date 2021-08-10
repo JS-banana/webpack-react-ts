@@ -19,10 +19,10 @@ function App() {
           <h1>欢迎使用 webpack-react-typescript 模板</h1>
           <Space size={60}>
             <Link to="/">
-              <Button>HomePage</Button>
+              <Button type="primary">HomePage</Button>
             </Link>
             <Link to="/about">
-              <Button type="primary">AboutPage</Button>
+              <Button>AboutPage</Button>
             </Link>
           </Space>
 
