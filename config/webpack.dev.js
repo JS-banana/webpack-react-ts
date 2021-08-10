@@ -28,7 +28,7 @@ const devConfig = {
   },
 
   devServer: {
-    port: 3000,
+    port: 3010,
     // contentBase: '../dist',
     publicPath: '/',
     open: true,
