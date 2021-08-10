@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { Button, Empty, Space } from 'antd';
 import HomePage from './pages/Home';
 import AboutPage from './pages/About';
@@ -10,31 +10,33 @@ import { hot } from 'react-hot-loader/root';
 function App() {
   return (
     <HelmetProvider>
-      <div className="app">
-        <Helmet titleTemplate="%s - webpack-react-typescript" defaultTitle="React App">
-          <meta name="description" content="a webpack5.x + react + typescript practices" />
-        </Helmet>
+      <Router>
+        <div className="app">
+          <Helmet titleTemplate="%s - webpack-react-typescript" defaultTitle="React App">
+            <meta name="description" content="a webpack5.x + react + typescript practices" />
+          </Helmet>
 
-        <h1>欢迎使用 webpack-react-typescript 模板</h1>
-        <Space align="center" size={60}>
-          <Link to="/">
-            <Button>HomePage</Button>
-          </Link>
-          <Link to="/about">
-            <Button type="primary">AboutPage</Button>
-          </Link>
-        </Space>
+          <h1>欢迎使用 webpack-react-typescript 模板</h1>
+          <Space size={60}>
+            <Link to="/">
+              <Button>HomePage</Button>
+            </Link>
+            <Link to="/about">
+              <Button type="primary">AboutPage</Button>
+            </Link>
+          </Space>
 
-        {/* Roues */}
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/about" component={AboutPage} />
-          <Route render={() => <Empty />} />
-        </Switch>
+          {/* Roues */}
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/about" component={AboutPage} />
+            <Route render={() => <Empty />} />
+          </Switch>
 
-        <img src={logo} alt="" style={{ width: 400, height: 400 }} />
-        <h4>a webpack5.x + react + typescript practices</h4>
-      </div>
+          <img src={logo} alt="" style={{ width: 400, height: 400 }} />
+          <h4>a webpack5.x + react + typescript practices</h4>
+        </div>
+      </Router>
     </HelmetProvider>
   );
 }

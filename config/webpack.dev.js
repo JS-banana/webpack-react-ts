@@ -29,7 +29,8 @@ const devConfig = {
 
   devServer: {
     port: 3000,
-    contentBase: '../dist',
+    // contentBase: '../dist',
+    publicPath: '/',
     open: true,
     hot: true,
     historyApiFallback: true,

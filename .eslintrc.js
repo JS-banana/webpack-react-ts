@@ -21,10 +21,12 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 6,
     sourceType: 'module',
+    createDefaultProgram: true,
     ecmaFeatures: {
       jsx: true,
     },
-    // project: './tsconfig.eslint.json',
+    project: './tsconfig.eslint.json',
+    // project: {},
   },
   rules: {
     'jsx-no-lambda': 0,
@@ -46,7 +48,7 @@ module.exports = {
     'no-submodule-imports': 0,
     'no-case-declarations': 1,
     '@typescript-eslint/no-empty-function': 0,
-    '@typescript-eslint/ban-ts-ignore': 1,
+    // '@typescript-eslint/ban-ts-ignore': 1,
     '@typescript-eslint/indent': 0,
     'jsx-alignment': 0,
     'jsx-wrap-multiline': 0,
@@ -107,8 +109,8 @@ module.exports = {
     'react/require-extension': 0,
     'react/self-closing-comp': 0,
     'react/sort-comp': 0,
-    'redux-saga/no-yield-in-race': 2,
-    'redux-saga/yield-effects': 2,
+    // 'redux-saga/no-yield-in-race': 2,
+    // 'redux-saga/yield-effects': 2,
     'require-yield': 0,
   },
   settings: {
@@ -117,7 +119,7 @@ module.exports = {
     },
     'import/resolver': {
       webpack: {
-        config: './internals/webpack/webpack.prod.babel.js',
+        config: './config/webpack.base.js',
       },
       typescript: {
         alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
