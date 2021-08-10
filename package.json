@@ -3,6 +3,13 @@
   "version": "0.0.1",
   "description": "a webpack5.x + react + typescript practices",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JS-banana/webpack-react-ts"
+  },
+  "bugs": {
+    "url": "https://github.com/JS-banana/webpack-react-ts/issues"
+  },
   "scripts": {
     "prepare": "husky install",
     "start": "npm run dev",
@@ -32,10 +39,7 @@
     "react-dom": "^17.0.2",
     "react-helmet-async": "^1.0.9",
     "react-hot-loader": "^4.13.0",
-    "react-redux": "^7.2.4",
-    "react-router-dom": "^5.2.0",
-    "redux": "^4.1.1",
-    "redux-saga": "^1.1.3"
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.8",
@@ -118,7 +122,7 @@
     "testEnvironment": "node"
   },
   "browserslist": [
-    "ie >= 10",
+    "ie >= 11",
     "ff >= 30",
     "chrome >= 34",
     "safari >= 8",
