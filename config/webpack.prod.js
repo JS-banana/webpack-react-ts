@@ -1,15 +1,16 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const { HashedModuleIdsPlugin } = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const { merge } = require('webpack-merge');
 const common = require('./webpack.base');
+const DefaultSetting = require('./setting');
 
 /** @type {import('webpack').Configuration} */
 const prodConfig = {
   mode: 'production',
-  devtool: 'hidden-source-map',
 
   output: {
     filename: '[name].[chunkhash].js',
@@ -24,6 +25,7 @@ const prodConfig = {
       },
     ],
   },
+
   optimization: {
     minimize: true,
     minimizer: [
@@ -40,10 +42,10 @@ const prodConfig = {
             ascii_only: true,
           },
         },
-        sourceMap: true,
       }),
     ],
     nodeEnv: 'production',
+    moduleIds: 'deterministic',
     sideEffects: true,
     concatenateModules: true,
     runtimeChunk: 'single',
@@ -82,23 +84,27 @@ const prodConfig = {
       inject: true,
     }),
 
-    new CompressionPlugin({
-      algorithm: 'gzip',
-      test: /\.js$|\.css$|\.html$/,
-      threshold: 10240,
-      minRatio: 0.8,
-    }),
+    // MiniCss
+    new MiniCssExtractPlugin(),
 
-    new HashedModuleIdsPlugin({
-      hashFunction: 'sha256',
-      hashDigest: 'hex',
-      hashDigestLength: 20,
-    }),
-  ],
+    // Gzip
+    DefaultSetting.Gzip &&
+      new CompressionPlugin({
+        algorithm: 'gzip',
+        test: /\.js$|\.css$|\.html$/,
+        threshold: 10240,
+        minRatio: 0.8,
+      }),
+
+    // Analyzer
+    DefaultSetting.Analyzer &&
+      new BundleAnalyzerPlugin({
+        analyzerPort: 9999,
+      }),
+  ].filter(Boolean),
 
   performance: {
     assetFilter: assetFilename => !/(\.map$)|(^(main\.|favicon\.))/.test(assetFilename),
   },
 };
-
 module.exports = merge(common, prodConfig);

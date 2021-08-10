@@ -1,13 +1,12 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
 const paths = require('./paths');
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
   entry: './src/index.tsx',
   output: {
-    path: path.resolve(__dirname, '..dist'),
+    path: paths.build,
     filename: '[name].[contenthash].js',
     publicPath: '',
   },
@@ -103,7 +102,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json', '.jsx'],
+    extensions: ['.ts', '.tsx', '.js', '.json', '.jsx', 'less'],
     alias: {
       '@': paths.src,
       'react-dom': '@hot-loader/react-dom',
