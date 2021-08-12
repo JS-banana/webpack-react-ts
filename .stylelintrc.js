@@ -1,4 +1,3 @@
 module.exports = {
-  processors: ['stylelint-processor-styled-components'],
-  extends: ['stylelint-config-recommended', 'stylelint-config-styled-components'],
+  extends: ['stylelint-config-standard', 'stylelint-config-recess-order'],
 };
