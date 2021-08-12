@@ -6,8 +6,8 @@ const prettierOptions = JSON.parse(fs.readFileSync(path.resolve(__dirname, '.pre
 module.exports = {
   parser: '@typescript-eslint/parser',
   extends: [
-    'airbnb-typescript',
-    'prettier',
+    'airbnb-typescript', // 使用 airbnb 拓展插件库
+    'prettier', // prettier 已自带 prettier/react、prettier/@typescript-eslint
     // 'prettier/react',
     // 'prettier/@typescript-eslint',
   ],
@@ -27,6 +27,21 @@ module.exports = {
     },
     project: './tsconfig.eslint.json',
     // project: {},
+  },
+  settings: {
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      webpack: {
+        config: './config/webpack.base.js',
+      },
+      typescript: {
+        alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+        directory: './tsconfig.json',
+      },
+    },
+    'import/ignore': ['types'], // Weirdly eslint cannot resolve exports in types folder (try removing this later)
   },
   rules: {
     'jsx-no-lambda': 0,
@@ -112,20 +127,5 @@ module.exports = {
     // 'redux-saga/no-yield-in-race': 2,
     // 'redux-saga/yield-effects': 2,
     'require-yield': 0,
-  },
-  settings: {
-    'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx'],
-    },
-    'import/resolver': {
-      webpack: {
-        config: './config/webpack.base.js',
-      },
-      typescript: {
-        alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
-        directory: './tsconfig.json',
-      },
-    },
-    'import/ignore': ['types'], // Weirdly eslint cannot resolve exports in types folder (try removing this later)
   },
 };
