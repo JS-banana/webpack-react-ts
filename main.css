@@ -2,16 +2,19 @@ html,
 body,
 #root,
 .app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
   width: 100%;
   height: 100%;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
-h4 {
-  color: aqua;
+html h4,
+body h4,
+#root h4,
+.app h4 {
+  color: #0066ff;
 }
 
