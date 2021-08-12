@@ -17,6 +17,7 @@
     "build": "webpack --config config/webpack.prod.js --mode production",
     "prebuild": "npm run build:clean",
     "build:clean": "rimraf ./dist",
+    "build:deploy": "webpack --config config/webpack.deploy.js --mode production",
     "prettify": "prettier --write",
     "pretty-quick": "pretty-quick",
     "lint:eslint:fix": "eslint --ext .ts,.tsx --no-error-on-unmatched-pattern --quiet --fix",
