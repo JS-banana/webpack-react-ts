@@ -2,10 +2,6 @@
 
 ## 开发
 
-- **使用 Github1s 在线预览源码**
-
-[![Preview in Github1s](https://raw.githubusercontent.com/conwnet/github1s/master/resources/images/logo.svg)](https://github1s.com/JS-banana/webpack-react-ts/)
-
 - **使用 Gitpod 体验在线开发环境**
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/JS-banana/webpack-react-ts/)
@@ -17,10 +13,6 @@
 git clone https://github.com/JS-banana/webpack-react-ts
 
 # install
-npm install
-# pnpm
-pnpm install
-# or
 yarn install
 
 # dev serve
@@ -58,7 +50,7 @@ yarn dev
         ├── Home                        // Home模块，建议组件统一大写开头
         ├── ...
     ├── App.tsx                         // react顶层文件
-    ├── index.ts                         // 项目入口文件
+    ├── index.ts                        // 项目入口文件
     ├── typing.d.ts                     // ts类型文件
 ├── .editorconfig                       // IDE格式规范
 ├── .env                                // 环境变量

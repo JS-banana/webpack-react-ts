@@ -17,14 +17,14 @@ const prodConfig = {
     chunkFilename: '[name].[chunkhash].chunk.js',
   },
 
-  module: {
-    rules: [
-      {
-        test: /\.(css|less)$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader'],
-      },
-    ],
-  },
+  // module: {
+  //   rules: [
+  //     {
+  //       test: /\.(css|less)$/,
+  //       use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader'],
+  //     },
+  //   ],
+  // },
 
   optimization: {
     minimize: true,

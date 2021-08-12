@@ -29,8 +29,8 @@ function App() {
           {/* Roues */}
           <Switch>
             <Route exact path="/" render={() => <Redirect to="/home" />} />
-            <Route path="/about" component={AboutPage} />
             <Route path="/home" component={HomePage} />
+            <Route path="/about" component={AboutPage} />
           </Switch>
 
           <img src={logo} alt="" style={{ width: 400, height: 400 }} />
