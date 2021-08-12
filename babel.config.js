@@ -1,6 +1,3 @@
-const { argv } = require('yargs');
-const isDev = argv.mode === 'development';
-
 module.exports = {
   presets: [
     [
@@ -27,7 +24,7 @@ module.exports = {
     '@babel/plugin-proposal-class-properties',
     '@babel/plugin-syntax-dynamic-import',
     'react-hot-loader/babel',
-    isDev && [
+    [
       'import',
       {
         libraryName: 'antd',

@@ -1,6 +1,9 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const paths = require('./paths');
+const { argv } = require('yargs');
+const isDev = argv.mode === 'development';
 
 /** @type {import('webpack').Configuration} */
 module.exports = {
@@ -21,13 +24,13 @@ module.exports = {
       // .css
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: [isDev ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader'],
       },
       // .less
       {
         test: /\.less$/,
         use: [
-          'style-loader',
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           {
             loader: 'less-loader',
