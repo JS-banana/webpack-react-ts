@@ -71,3 +71,7 @@ yarn dev
 ├── tsconfig.eslint.json                // eslint拓展typescript配置文件
 └── tsconfig.json                       // tsconfig
 ```
+
+## 更新
+
+- 2021-08-19：lint 配置调整优化
