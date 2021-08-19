@@ -19,6 +19,8 @@
     "build": "webpack --config config/webpack.prod.js --mode production",
     "prebuild": "npm run build:clean",
     "build:clean": "rimraf ./dist",
+    "build:deploy": "webpack --config config/webpack.deploy.js --mode production",
+    "prettify": "prettier --write",
     "pretty-quick": "pretty-quick",
     "lint:eslint:fix": "eslint --ext .ts,.tsx --no-error-on-unmatched-pattern --quiet --fix",
     "lint:style": "stylelint --fix \"src/**/*.less\" --syntax less",
@@ -41,11 +43,7 @@
   ],
   "lint-staged": {
     "*.{ts,tsx}": [
-      "npm run lint",
-      "git add --force"
-    ],
-    "*.{less}": [
-      "npm run lint:style",
+      "npm run lint:eslint:fix",
       "git add --force"
     ],
     "*.{md,json}": [
