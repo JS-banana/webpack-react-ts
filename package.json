@@ -2,6 +2,8 @@
   "name": "webpack-react-ts",
   "version": "0.0.1",
   "description": "a webpack5.x + react + typescript practices",
+  "author": "JS-banana",
+  "license": "MIT",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -17,18 +19,36 @@
     "build": "webpack --config config/webpack.prod.js --mode production",
     "prebuild": "npm run build:clean",
     "build:clean": "rimraf ./dist",
-    "prettify": "prettier --write",
     "pretty-quick": "pretty-quick",
     "lint:eslint:fix": "eslint --ext .ts,.tsx --no-error-on-unmatched-pattern --quiet --fix",
     "lint:style": "stylelint --fix \"src/**/*.less\" --syntax less",
+    "lint": "npm run lint:eslint:fix && npm run lint:style",
     "commitlint": "commitlint --from=master",
     "serve": "serve --no-clipboard --single --listen 3000 dist",
     "test": "jest",
     "test-c": "jest --coverage",
     "test:clean": "rimraf ./coverage"
   },
-  "author": "JS-banana",
-  "license": "MIT",
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "browserslist": [
+    "ie >= 11",
+    "ff >= 30",
+    "chrome >= 34",
+    "safari >= 8",
+    "opera >= 23"
+  ],
+  "lint-staged": {
+    "*.{ts,tsx,less}": [
+      "npm run lint",
+      "git add --force"
+    ],
+    "*.{md,json}": [
+      "pretty-quick --staged",
+      "git add --force"
+    ]
+  },
   "dependencies": {
     "@hot-loader/react-dom": "^17.0.1",
     "antd": "^4.16.10",
@@ -122,31 +142,5 @@
   },
   "resolutions": {
     "babel-loader": "8.2.2"
-  },
-  "jest": {
-    "testEnvironment": "node"
-  },
-  "browserslist": [
-    "ie >= 11",
-    "ff >= 30",
-    "chrome >= 34",
-    "safari >= 8",
-    "opera >= 23"
-  ],
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "npm run lint:eslint:fix",
-      "git add --force"
-    ],
-    "*.{md,json}": [
-      "prettier --write",
-      "git add --force"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npx lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   }
 }
