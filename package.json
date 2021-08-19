@@ -40,8 +40,12 @@
     "opera >= 23"
   ],
   "lint-staged": {
-    "*.{ts,tsx,less}": [
+    "*.{ts,tsx}": [
       "npm run lint",
+      "git add --force"
+    ],
+    "*.{less}": [
+      "npm run lint:style",
       "git add --force"
     ],
     "*.{md,json}": [
