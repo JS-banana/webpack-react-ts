@@ -35,11 +35,9 @@
     "testEnvironment": "node"
   },
   "browserslist": [
-    "ie >= 11",
-    "ff >= 30",
-    "chrome >= 34",
-    "safari >= 8",
-    "opera >= 23"
+    "last 1 versions",
+    "> 2%",
+    "not dead"
   ],
   "lint-staged": {
     "*.{ts,tsx}": [

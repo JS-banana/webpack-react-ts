@@ -3,8 +3,9 @@ module.exports = {
     [
       '@babel/preset-env',
       {
-        corejs: 3.9,
-        useBuiltIns: 'usage',
+        // corejs: 3,
+        // debug: true,
+        // useBuiltIns: 'usage', // 开启浏览器兼容 polyfills，会根据browserslist配置，引入需要的库，需要安装对应版本的 core-js@3
       },
     ],
     [
