@@ -2472,7 +2472,7 @@ html {
   padding: 2.4px 0;
   font-size: 16px;
   border-radius: 2px;
-  vertical-align: -1px;
+  vertical-align: -3px;
 }
 .ant-btn-icon-only > * {
   font-size: 16px;
@@ -2496,6 +2496,10 @@ html {
 }
 .ant-btn-icon-only.ant-btn-sm > * {
   font-size: 14px;
+}
+.ant-btn-icon-only > .anticon {
+  display: flex;
+  justify-content: center;
 }
 .ant-btn-round {
   height: 32px;
@@ -2753,14 +2757,14 @@ html {
 .ant-btn > span + .anticon {
   margin-left: 8px;
 }
-.ant-btn-background-ghost {
+.ant-btn.ant-btn-background-ghost {
   color: #fff;
   border-color: #fff;
 }
-.ant-btn-background-ghost,
-.ant-btn-background-ghost:hover,
-.ant-btn-background-ghost:active,
-.ant-btn-background-ghost:focus {
+.ant-btn.ant-btn-background-ghost,
+.ant-btn.ant-btn-background-ghost:hover,
+.ant-btn.ant-btn-background-ghost:active,
+.ant-btn.ant-btn-background-ghost:focus {
   background: transparent;
 }
 .ant-btn-background-ghost.ant-btn-primary {
