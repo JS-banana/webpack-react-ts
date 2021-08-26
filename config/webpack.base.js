@@ -105,10 +105,10 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json', '.jsx', 'less'],
+    extensions: ['.ts', '.tsx', '.js', '.json', '.jsx'],
     alias: {
       '@': paths.src,
-      'react-dom': '@hot-loader/react-dom',
+      // 'react-dom': '@hot-loader/react-dom',
     },
   },
   plugins: [

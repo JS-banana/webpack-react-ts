@@ -24,7 +24,7 @@ module.exports = {
     // '@babel/plugin-transform-react-constant-elements',
     '@babel/plugin-proposal-class-properties',
     '@babel/plugin-syntax-dynamic-import',
-    'react-hot-loader/babel',
+    // 'react-hot-loader/babel',
     [
       'import',
       {
