@@ -1,21 +1,14 @@
 import React, { useEffect } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect,
-  useHistory,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import { Button, Space } from 'antd';
 import HomePage from './pages/Home';
 import AboutPage from './pages/About';
 import logo from './logo.jpg';
-import { hot } from 'react-hot-loader/root';
 
 function App() {
-  const history = useHistory();
+  const history = createBrowserHistory();
 
   useEffect(() => {
     history.replace('/home');
@@ -54,4 +47,4 @@ function App() {
   );
 }
 
-export default hot(App);
+export default App;
