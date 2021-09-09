@@ -1,4 +1,5 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -29,6 +30,7 @@ const prodConfig = {
   optimization: {
     minimize: true,
     minimizer: [
+      // js
       new TerserPlugin({
         terserOptions: {
           warnings: false,
@@ -43,6 +45,9 @@ const prodConfig = {
           },
         },
       }),
+
+      // css
+      // new CssMinimizerPlugin(),
     ],
     nodeEnv: 'production',
     moduleIds: 'deterministic',
